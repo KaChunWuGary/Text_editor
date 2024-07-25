@@ -31,7 +31,11 @@ export const getDb = async () => {
   const request = store.getAll();
   const result = await request;
   console.log (result);
-  return result;
+  if ( result.length > 0) {
+    return result[result.length - 1].content;
+  } else {
+    return '';
+  }
 }
 
 initdb();
