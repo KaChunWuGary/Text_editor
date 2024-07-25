@@ -10,7 +10,7 @@ export default class {
     if (typeof CodeMirror === 'undefined') {
       throw new Error('CodeMirror is not loaded');
     }
-
+    
     this.editor = CodeMirror(document.querySelector('#main'), {
       value: '',
       mode: 'javascript',
@@ -33,7 +33,7 @@ export default class {
       localStorage.setItem('content', this.editor.getValue());
     });
 
-    // Save the content of the editor when the editor itself is loses focus
+    // Save the content of the editor when the editor itself loses focus
     this.editor.on('blur', () => {
       console.log('The editor has lost focus');
       putDb(localStorage.getItem('content'));
